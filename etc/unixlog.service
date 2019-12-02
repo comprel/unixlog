@@ -1,0 +1,17 @@
+[Unit]
+Description=the unix log service
+After=network.target
+Documentation=https://test.test.com
+
+[Service]
+User=root
+ExecStart=/usr/bin/python  /usr/local/unixLog/manager.py
+TimeoutStopSec=10
+TimeoutStartSec=10
+KillSignal=SIGQUIT
+Restart=always
+CPUQuota=5%
+MemoryLimit=50M
+
+[Install]
+WantedBy=multi-user.target
